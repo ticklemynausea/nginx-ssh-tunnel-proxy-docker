@@ -1,0 +1,80 @@
+html {
+   width: 100%;
+   height: 100%;
+}
+
+body {
+  background-color: #050505;
+  width: 100%;
+  height: 100%;
+}
+
+div#top {
+  width: 100%;
+  height: 73.4%;
+  clear: left;
+
+}
+
+div#top div {
+  width: 14.2857%;
+  height: 100%;
+  float: left;
+}
+
+div#mid {
+  width: 100%;
+  height: 9.3%;
+  clear: left;
+}
+
+div#mid div {
+  width: 14.2857%;
+  height: 100%;
+  float: left;
+}
+
+div#bot {
+  width: 100%;
+  height: 17.3%;
+  clear: left;
+}
+
+div#bot div {
+  width: 16.6667%;
+  height: 100%;
+  float: left;
+}
+
+div#bot div.d {
+  width: 5.55%;
+  height: 100%;
+  float: left;
+}
+
+div.t1 { background-color: #c0c0c0; }
+div.t2 { background-color: #c0c000; }
+div.t3 { background-color: #00c0c0; }
+div.t4 { background-color: #00c000; }
+div.t5 { background-color: #c000c0; }
+div.t6 { background-color: #c00000; }
+div.t7 { background-color: #0000c0; }
+
+
+div.u1 { background-color: #0000c0; }
+div.u2 { background-color: #131313; }
+div.u3 { background-color: #c000c0; }
+div.u4 { background-color: #131313; }
+div.u5 { background-color: #00c0c0; }
+div.u6 { background-color: #131313; }
+div.u7 { background-color: #c0c0c0; }
+
+
+div.b1 { background-color: #00214c; }
+div.b2 { background-color: #ffffff; }
+div.b3 { background-color: #32006a; }
+div.b4 { background-color: #131313; }
+div.b51.d { background-color: #090909; }
+div.b52.d { background-color: #131313; }
+div.b53.d { background-color: #1d1d1d; }
+div.b6 { background-color: #131313; }
