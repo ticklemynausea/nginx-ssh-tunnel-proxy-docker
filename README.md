@@ -76,7 +76,7 @@ can safely be `:ro`.
 | `BASIC_AUTH_ENABLED`   | Set to `1` to enable HTTP basic auth.                    |
 | `BASIC_AUTH_HTPASSWD`  | `user:hash` line (see below).                            |
 | `CUSTOM_CONFIG`        | Raw nginx directives spliced into the server block.      |
-| `NETWORK_RESTRICTION`  | IP or CIDR to allow (`deny all` for everything else).    |
+| `NETWORK_RESTRICTION`  | Space-separated IPs/CIDRs to allow (`deny all` for the rest). |
 
 ## Getting `SSH_KNOWN_HOSTS`
 
