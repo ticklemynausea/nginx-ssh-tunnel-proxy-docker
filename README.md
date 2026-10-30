@@ -64,7 +64,28 @@ can safely be `:ro`.
 | `SSH_PORT`     | `22`           | SSH port on the target.                                   |
 | `REMOTE_HOST`  | `127.0.0.1`    | Host the target should forward to (from its perspective). |
 | `LOCAL_PORT`   | `8080`         | Local port inside the container. Not exposed externally.  |
+| `PROXY_HOST`   | `$host`        | `Host` header sent upstream. Set to `localhost` for services that reject other hosts. |
 | `SSH_KEY_PATH` | `/ssh/id_key`  | Where inside the container to read the private key from.  |
+| `PATH_PORTS`   |                | Extra remote ports served under a path, e.g. `/files:8000 /api:9000` (see below). |
+
+### Serving extra ports under paths
+
+`PATH_PORTS` is a space-separated list of `/path:remote_port` rules. Each one
+adds another `-L` forward on the same SSH connection (on local ports
+`LOCAL_PORT+1`, `LOCAL_PORT+2`, …) and an nginx location that strips the
+prefix:
+
+```
+PATH_PORTS="/files:8000"
+
+https://example.org/files/sample.jpg  ->  http://REMOTE_HOST:8000/sample.jpg
+https://example.org/files             ->  301 to /files/
+```
+
+Everything else still goes to `REMOTE_PORT`. Network restriction, basic auth
+and `PROXY_HOST` apply to every path. The prefix is sent upstream as
+`X-Forwarded-Prefix`. Apps that emit absolute links (`/style.css`) will need to
+be configured with their base path to work under a prefix.
 
 ### nginx / nginx-proxy (inherited from sibling project)
 

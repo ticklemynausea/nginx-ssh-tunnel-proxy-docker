@@ -16,24 +16,15 @@ server {
   set $env_basic_auth_enabled _${BASIC_AUTH_ENABLED};
 
   include conf.d/custom.conf;
+  include conf.d/paths.inc;
 
   location / {
-    include conf.d/network.conf;
+    include conf.d/proxy.inc;
 
     proxy_pass http://127.0.0.1:${LOCAL_PORT};
 
-    proxy_http_version 1.1;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
-
-    error_page 502 /error/5xx.html;
     location /error/ {
       root /usr/share/nginx/html;
     }
-
-    auth_basic $basic_auth_enabled;
-    auth_basic_user_file /etc/nginx/.htpasswd;
   }
 }
